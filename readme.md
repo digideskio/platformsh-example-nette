@@ -1,55 +1,23 @@
-Nette Web Project
-=================
+# Nette project template for Platform.sh
 
-This is a simple, skeleton application using the [Nette](https://nette.org). This is meant to
-be used as a starting point for your new projects.
+This project provides a starter kit for a basic [Nette](https://nette.org) project hosted on [Platform.sh](http://platform.sh).
 
 [Nette](https://nette.org) is a popular tool for PHP web development.
 It is designed to be the most usable and friendliest as possible. It focuses
 on security and performance and is definitely one of the safest PHP frameworks.
 
+## Starting a new project
 
-Requirements
-------------
+To start a new project based on this template, follow these 3 simple steps:
 
-PHP 5.6 or higher.
+1. Clone this repository locally. You may optionally remove the origin remote or remove the .git directory and re-init the project if you want a clean history.
 
+2. Create a new project through the Platform.sh user interface and select "Import an existing project" when prompted.
 
-Installation
-------------
+3. Run the provided Git commands to add a Platform.sh remote and push the code to the Platform.sh repository.
 
-The best way to install Web Project is using Composer. If you don't have Composer yet,
-download it following [the instructions](https://doc.nette.org/composer). Then use command:
+That's it! You now have a working "hello world" level project you can build on.
 
-	composer create-project nette/web-project path/to/install
-	cd path/to/install
+## Using as a reference
 
-
-Make directories `temp/` and `log/` writable.
-
-
-Web Server Setup
-----------------
-
-The simplest way to get started is to start the built-in PHP server in the root directory of your project:
-
-	php -S localhost:8000 -t www
-
-Then visit `http://localhost:8000` in your browser to see the welcome page.
-
-For Apache or Nginx, setup a virtual host to point to the `www/` directory of the project and you
-should be ready to go.
-
-**It is CRITICAL that whole `app/`, `log/` and `temp/` directories are not accessible directly
-via a web browser. See [security warning](https://nette.org/security-warning).**
-
-Notice: Composer PHP version
-----------------------------
-This project forces `PHP 5.6` as your PHP version for Composer packages. If you have newer version on production you should change it in `composer.json`.
-```json
-"config": {
-	"platform": {
-		"php": "7.0"
-	}
-}
-```
+You can also use this repository as a reference for your own projects, and borrow whatever code is needed. The most important parts are the .platform.app.yaml file and the .platform directory.
