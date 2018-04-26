@@ -1,0 +1,61 @@
+# .platform.app.yaml
+
+# The name of this application, which must be unique within a project.
+name: 'app'
+
+# The type key specifies the language and version for your application.
+type: 'php:7.0'
+
+# On PHP, there are multiple build flavors available.
+build:
+  flavor: composer
+
+# The hooks that will be triggered when the package is deployed.
+# hooks:
+    # Build hooks can modify the application files on disk but not access any services like databases.
+    # build: |
+    # Deploy hooks can access services but the file system is now read-only.
+    # deploy: |
+
+# The size of the persistent disk of the application (in MB).
+disk: 2048
+
+# The 'mounts' describe writable, persistent filesystem mounts in the application.
+mounts:
+    '/temp': 'shared:files/temp'
+    '/log': 'shared:files/log'
+
+# The configuration of app when it is exposed to the web.
+web:
+    # Specific parameters for different URL prefixes.
+    locations:
+        '/':
+            # The folder from which to serve static assets, for this location.
+            #
+            # This is a filesystem path, relative to the application root.
+            root: 'www'
+
+            # How long to allow static assets from this location to be cached.
+            #
+            # Can be a time in seconds, or -1 for no caching. Times can be
+            # suffixed with "s" (seconds), "m" (minutes), "h" (hours), "d"
+            # (days), "w" (weeks), "M" (months, as 30 days) or "y" (years, as
+            # 365 days).
+            expires: 5m
+
+            # Whether to forward disallowed and missing resources from this
+            # location to the application.
+            #
+            # Can be true, false or a URI path string.
+            passthru: '/index.php'
+
+            # Deny access to static files in this location.
+            allow: false
+
+            # Rules for specific URI patterns.
+            rules:
+                # Allow access to common static files.
+                '\.(pdf|js|ico|gif|jpg|png|css|rar|zip|tar\.gz|map)$'
+                    allow: true
+                '^/robots\.txt$':
+                    allow: true
