@@ -15,7 +15,15 @@ $configurator->createRobotLoader()
 	->register();
 
 $configurator->addConfig(__DIR__ . '/config/config.neon');
-$configurator->addConfig(__DIR__ . '/config/config.local.neon');
+
+// Only load this if we are on Platform.sh
+if (getenv('PLATFORM_PROJECT_ENTROPY')) {
+    $configurator->addConfig(__DIR__ '.' '/config/config.platformsh.neon');
+}
+else {
+    $configurator->addConfig(__DIR__ . '/config/config.local.neon');
+}
+
 
 $container = $configurator->createContainer();
 
