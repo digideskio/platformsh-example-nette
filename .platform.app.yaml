@@ -8,7 +8,7 @@ type: 'php:7.0'
 
 # On PHP, there are multiple build flavors available.
 build:
-  flavor: composer
+    flavor: composer
 
 # The hooks that will be triggered when the package is deployed.
 # hooks:
