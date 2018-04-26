@@ -35,7 +35,7 @@ web:
             # Rules for specific URI patterns.
             rules:
                 # Allow access to common static files.
-                '\.(pdf|js|ico|gif|jpg|png|css|rar|zip|tar\.gz|map)$'
+                '\.(pdf|js|ico|gif|jpg|png|css|rar|zip|tar\.gz|map)$':
                     allow: true
                 '^/robots\.txt$':
                     allow: true
